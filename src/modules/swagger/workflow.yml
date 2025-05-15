@@ -1,0 +1,29 @@
+# .github/workflows/documentation.yml
+name: Generate API Documentation
+
+on:
+  push:
+    branches: [main, develop]
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Generate Swagger documentation
+        run: |
+          GENERATE_STATIC_DOCS=true npm run start:docs
+          
+      - name: Upload documentation artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: api-docs
+          path: ./swagger-spec.json
