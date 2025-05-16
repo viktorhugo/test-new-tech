@@ -4,6 +4,8 @@ import { CreateUserDto, UserResponseDto } from '../DTO/user.dto';
 import { PaginatedProductsResponseDto, PaginationQueryDto } from '../DTO/interactive.dto';
 import { ApiBearerAuth } from '@nestjs/swagger';
 
+//*! https://freedium.cfd/https://medium.com/@mohantaankit2002/how-to-improve-api-documentation-in-nestjs-for-better-developer-experience-4fe55ce9f510
+
 
 @ApiTags('users')
 
